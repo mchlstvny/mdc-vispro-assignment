@@ -8,6 +8,7 @@ dependencies:
   flutter:
     sdk: flutter
   intl: ^0.17.0
+  flutter_svg: ^2.1.1
 
   cupertino_icons: ^1.0.5
   shrine_images: ^2.0.2
@@ -29,6 +30,9 @@ flutter:
   assets:
     - assets/catcrochet_logo.png
     # TODO: Add slanted menu asset (104)
+    - assets/slanted_menu.png
+    - assets/crochet.svg
+
     - assets/crochet/duck_with_hat.jpeg
     - assets/crochet/flower_bunny.jpeg
     - assets/crochet/little_hammie.jpeg

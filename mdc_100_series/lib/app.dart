@@ -17,65 +17,88 @@ import 'supplemental/cut_corners_border.dart';
 
 import 'home.dart';
 import 'login.dart';
+import 'model/product.dart';
 import 'colors.dart';
+import 'backdrop.dart';
+import 'category_menu_page.dart';
 
 // TODO: Convert ShrineApp to stateful widget (104)
-class ShrineApp extends StatelessWidget {
+// TODO: Convert ShrineApp to stateful widget (104)
+class ShrineApp extends StatefulWidget {
   const ShrineApp({Key? key}) : super(key: key);
+
+  @override
+  _ShrineAppState createState() => _ShrineAppState();
+}
+
+class _ShrineAppState extends State<ShrineApp> {
+  // TODO: Make currentCategory field take _currentCategory (104)
+  Category _currentCategory = Category.all;
+
+  void _onCategoryTap(Category category) {
+    setState(() {
+      _currentCategory = category;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Shrine',
+      title: 'Crochet by Lee',
       initialRoute: '/login',
       routes: {
         '/login': (BuildContext context) => const LoginPage(),
         // TODO: Change to a Backdrop with a HomePage frontLayer (104)
-        '/': (BuildContext context) => const HomePage(),
-        // TODO: Make currentCategory field take _currentCategory (104)
-        // TODO: Pass _currentCategory for frontLayer (104)
-        // TODO: Change backLayer field value to CategoryMenuPage (104)
-      },
-      // TODO: Customize the theme (103)
-      theme: _kShrineTheme,
-    );
+        '/': (BuildContext context) => Backdrop(
+              // TODO: Make currentCategory field take _currentCategory (104)
+              currentCategory: _currentCategory,
+              // TODO: Pass _currentCategory for frontLayer (104)
+              frontLayer: HomePage(category: _currentCategory),
+              // TODO: Change backLayer field value to CategoryMenuPage (104)
+              backLayer: CategoryMenuPage(
+                currentCategory: _currentCategory,
+                onCategoryTap: _onCategoryTap,
+              ),
+              frontTitle: const Text('Crochet by Lee'),
+              backTitle: const Text('MENU'),
+            ),
+        },
+        // TODO: Customize the theme (103)
+        theme: _kShrineTheme,
+      );
+    }
   }
-}
-
 
 // TODO: Build a Shrine Theme (103)
 final ThemeData _kShrineTheme = _buildShrineTheme();
 
 ThemeData _buildShrineTheme() {
-  final ThemeData base = ThemeData.light();
+  final ThemeData base = ThemeData.light(useMaterial3: true);
   return base.copyWith(
     colorScheme: base.colorScheme.copyWith(
-      primary: kShrinePurple,
-      secondary: kShrinePurple,
+      primary: kShrinePink100,
+      onPrimary: kShrineBrown900,
+      secondary: kShrineBrown900,
       error: kShrineErrorRed,
     ),
-    scaffoldBackgroundColor: kShrineSurfaceWhite,
+    // textTheme: _buildShrineTextTheme(base.textTheme),
     textSelectionTheme: const TextSelectionThemeData(
-      selectionColor: kShrinePurple,
+      selectionColor: kShrinePink100,
     ),
     appBarTheme: const AppBarTheme(
       foregroundColor: kShrineBrown900,
       backgroundColor: kShrinePink100,
     ),
-
-    // TODO: Add the text themes (103)
-
-    // TODO: Decorate the inputs (103)
     inputDecorationTheme: const InputDecorationTheme(
       border: CutCornersBorder(),
       focusedBorder: CutCornersBorder(
         borderSide: BorderSide(
           width: 2.0,
-          color: kShrinePurple,
+          color: kShrineBrown900,
         ),
       ),
       floatingLabelStyle: TextStyle(
-        color: kShrinePurple,
+        color: kShrineBrown900,
       ),
     ),
   );
