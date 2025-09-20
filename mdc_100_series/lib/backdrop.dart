@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:shrine/colors.dart';
 
 
 import 'model/product.dart';
@@ -142,7 +143,7 @@ class _BackdropState extends State<Backdrop>
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (BuildContext context) => LoginPage()),
+                builder: (BuildContext context) => const LoginPage()),
             );
           },
         ),
@@ -156,7 +157,7 @@ class _BackdropState extends State<Backdrop>
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (BuildContext context) => LoginPage()),
+                builder: (BuildContext context) => const LoginPage()),
             );
           },
         ),
@@ -240,7 +241,7 @@ class _BackdropTitle extends AnimatedWidget {
           width: 72.0,
           child: IconButton(
             padding: const EdgeInsets.only(right: 15.0,),
-            onPressed: this.onPress,
+            onPressed: onPress,
             icon: Stack(
               children: <Widget>[
                 Opacity(
@@ -255,7 +256,7 @@ class _BackdropTitle extends AnimatedWidget {
                     end: const Offset(1.0, 0.0),
                   ).evaluate(animation),
                   child: SvgPicture.asset(
-                    'assets/crochet.svg',
+                    'assets/crochet-white.svg',
                     width: 24,
                     height: 24,
                   ),

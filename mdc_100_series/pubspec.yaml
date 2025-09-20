@@ -32,6 +32,7 @@ flutter:
     # TODO: Add slanted menu asset (104)
     - assets/slanted_menu.png
     - assets/crochet.svg
+    - assets/crochet-white.svg
 
     - assets/crochet/duck_with_hat.jpeg
     - assets/crochet/flower_bunny.jpeg

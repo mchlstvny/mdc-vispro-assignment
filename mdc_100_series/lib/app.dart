@@ -13,17 +13,14 @@
 // limitations under the License.
 
 import 'package:flutter/material.dart';
+import 'colors.dart';
 import 'supplemental/cut_corners_border.dart';
-
 import 'home.dart';
 import 'login.dart';
-import 'model/product.dart';
-import 'colors.dart';
 import 'backdrop.dart';
 import 'category_menu_page.dart';
+import 'model/product.dart';
 
-// TODO: Convert ShrineApp to stateful widget (104)
-// TODO: Convert ShrineApp to stateful widget (104)
 class ShrineApp extends StatefulWidget {
   const ShrineApp({Key? key}) : super(key: key);
 
@@ -32,7 +29,6 @@ class ShrineApp extends StatefulWidget {
 }
 
 class _ShrineAppState extends State<ShrineApp> {
-  // TODO: Make currentCategory field take _currentCategory (104)
   Category _currentCategory = Category.all;
 
   void _onCategoryTap(Category category) {
@@ -47,60 +43,70 @@ class _ShrineAppState extends State<ShrineApp> {
       title: 'Crochet by Lee',
       initialRoute: '/login',
       routes: {
-        '/login': (BuildContext context) => const LoginPage(),
-        // TODO: Change to a Backdrop with a HomePage frontLayer (104)
-        '/': (BuildContext context) => Backdrop(
-              // TODO: Make currentCategory field take _currentCategory (104)
+        '/login': (context) => const LoginPage(),
+        '/': (context) => Backdrop(
               currentCategory: _currentCategory,
-              // TODO: Pass _currentCategory for frontLayer (104)
               frontLayer: HomePage(category: _currentCategory),
-              // TODO: Change backLayer field value to CategoryMenuPage (104)
               backLayer: CategoryMenuPage(
                 currentCategory: _currentCategory,
                 onCategoryTap: _onCategoryTap,
               ),
-              frontTitle: const Text('Crochet by Lee'),
-              backTitle: const Text('MENU'),
+              frontTitle: const Text(
+                'Crochet by Lee',
+                style: TextStyle(
+                  color: kSurfaceWhite,
+                ),
+              ),
+              backTitle: const Text(
+                'MENU',
+                style: TextStyle(
+                  color: kSurfaceWhite,
+                ),
+              ),
             ),
-        },
-        // TODO: Customize the theme (103)
-        theme: _kShrineTheme,
-      );
-    }
+      },
+      theme: _buildBrownTheme(),
+    );
   }
+}
 
-// TODO: Build a Shrine Theme (103)
-final ThemeData _kShrineTheme = _buildShrineTheme();
+ThemeData _buildBrownTheme() {
+  final ColorScheme colorScheme = ColorScheme.fromSeed(
+    seedColor: kBrownMedium,
+    brightness: Brightness.light,
+  );
 
-ThemeData _buildShrineTheme() {
-  final ThemeData base = ThemeData.light(useMaterial3: true);
-  return base.copyWith(
-    colorScheme: base.colorScheme.copyWith(
-      primary: kShrinePink100,
-      onPrimary: kShrineBrown900,
-      secondary: kShrineBrown900,
-      error: kShrineErrorRed,
+  return ThemeData(
+    colorScheme: colorScheme,
+    useMaterial3: true,
+    scaffoldBackgroundColor: colorScheme.surface,
+    appBarTheme: AppBarTheme(
+      backgroundColor: colorScheme.primary,
+      foregroundColor: colorScheme.onPrimary,
     ),
-    // textTheme: _buildShrineTextTheme(base.textTheme),
-    textSelectionTheme: const TextSelectionThemeData(
-      selectionColor: kShrinePink100,
-    ),
-    appBarTheme: const AppBarTheme(
-      foregroundColor: kShrineBrown900,
-      backgroundColor: kShrinePink100,
-    ),
-    inputDecorationTheme: const InputDecorationTheme(
-      border: CutCornersBorder(),
+    inputDecorationTheme: InputDecorationTheme(
+      border: const CutCornersBorder(),
       focusedBorder: CutCornersBorder(
         borderSide: BorderSide(
           width: 2.0,
-          color: kShrineBrown900,
+          color: colorScheme.primary,
         ),
       ),
-      floatingLabelStyle: TextStyle(
-        color: kShrineBrown900,
+      floatingLabelStyle: TextStyle(color: colorScheme.onSurface),
+    ),
+    textSelectionTheme: TextSelectionThemeData(
+      selectionColor: colorScheme.primary.withOpacity(0.4),
+    ),
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ElevatedButton.styleFrom(
+        backgroundColor: colorScheme.primary,
+        foregroundColor: colorScheme.onPrimary,
+        elevation: 8,
       ),
+    ),
+    textTheme: Typography.blackMountainView.apply(
+      bodyColor: colorScheme.onSurface,
+      displayColor: colorScheme.onSurface,
     ),
   );
 }
-// TODO: Build a Shrine Text Theme (103)
