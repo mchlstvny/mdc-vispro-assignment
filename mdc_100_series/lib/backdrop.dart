@@ -48,7 +48,9 @@ class _BackdropState extends State<Backdrop>
     if (widget.currentCategory != oldWidget.currentCategory) {
       _toggleBackdropLayerVisibility();
     } else if (!_frontLayerVisible) {
-      _controller.fling(velocity: _kFlingVelocity);
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (mounted) _controller.fling(velocity: _kFlingVelocity);
+      });
     }
   }
 
@@ -65,8 +67,12 @@ class _BackdropState extends State<Backdrop>
   }
 
   void _toggleBackdropLayerVisibility() {
-    _controller.fling(
-        velocity: _frontLayerVisible ? -_kFlingVelocity : _kFlingVelocity);
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted) return;
+      _controller.fling(
+        velocity: _frontLayerVisible ? -_kFlingVelocity : _kFlingVelocity,
+      );
+    });
   }
 
   Widget _buildStack(BuildContext context, BoxConstraints constraints) {
@@ -174,7 +180,7 @@ class _FrontLayer extends StatelessWidget {
               alignment: AlignmentDirectional.centerStart,
             ),
           ),
-          Expanded(
+          Flexible(
             child: child,
           ),
         ],

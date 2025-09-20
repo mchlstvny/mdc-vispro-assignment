@@ -1,24 +1,12 @@
-// Copyright 2018-present the Flutter authors. All Rights Reserved.
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-// http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-
 import 'product.dart';
 
 class ProductsRepository {
   static List<Product> loadProducts(Category category) {
     const allProducts = <Product>[
+      
+      // Plushie
       Product(
-        category: Category.accessories,
+        category: Category.plushie,
         id: 0,
         isFeatured: true,
         name: 'Duck With Hat',
@@ -26,7 +14,7 @@ class ProductsRepository {
         assetName: 'assets/crochet/duck_with_hat.jpeg',
       ),
       Product(
-        category: Category.accessories,
+        category: Category.plushie,
         id: 1,
         isFeatured: true,
         name: 'Flower Bunny',
@@ -34,7 +22,7 @@ class ProductsRepository {
         assetName: 'assets/crochet/flower_bunny.jpeg',
       ),
       Product(
-        category: Category.accessories,
+        category: Category.plushie,
         id: 2,
         isFeatured: false,
         name: 'Little Hammie',
@@ -42,7 +30,7 @@ class ProductsRepository {
         assetName: 'assets/crochet/little_hammie.jpeg',
       ),
       Product(
-        category: Category.accessories,
+        category: Category.plushie,
         id: 3,
         isFeatured: true,
         name: 'Fat Raccoon',
@@ -50,7 +38,7 @@ class ProductsRepository {
         assetName: 'assets/crochet/fat_raccoon.jpeg',
       ),
       Product(
-        category: Category.accessories,
+        category: Category.plushie,
         id: 4,
         isFeatured: false,
         name: 'Pochacco',
@@ -58,7 +46,7 @@ class ProductsRepository {
         assetName: 'assets/crochet/pochacco.jpeg',
       ),
       Product(
-        category: Category.accessories,
+        category: Category.plushie,
         id: 5,
         isFeatured: false,
         name: 'Baby Elephant',
@@ -66,7 +54,7 @@ class ProductsRepository {
         assetName: 'assets/crochet/elephant.jpeg',
       ),
       Product(
-        category: Category.accessories,
+        category: Category.plushie,
         id: 6,
         isFeatured: false,
         name: 'Toothless or Light Fury',
@@ -74,7 +62,7 @@ class ProductsRepository {
         assetName: 'assets/crochet/toothless_lightfury.jpeg',
       ),
       Product(
-        category: Category.accessories,
+        category: Category.plushie,
         id: 7,
         isFeatured: true,
         name: 'Bear Bee',
@@ -82,15 +70,17 @@ class ProductsRepository {
         assetName: 'assets/crochet/bee.jpeg',
       ),
       Product(
-        category: Category.accessories,
+        category: Category.plushie,
         id: 8,
         isFeatured: true,
         name: 'Nemo',
         price: 40000,
         assetName: 'assets/crochet/nemo.jpeg',
       ),
+
+      // Decor
       Product(
-        category: Category.home,
+        category: Category.decor,
         id: 9,
         isFeatured: true,
         name: 'Cute Cloud',
@@ -98,7 +88,7 @@ class ProductsRepository {
         assetName: 'assets/crochet/cloud.jpeg',
       ),
       Product(
-        category: Category.home,
+        category: Category.decor,
         id: 10,
         isFeatured: false,
         name: 'Fat Pug',
@@ -106,7 +96,7 @@ class ProductsRepository {
         assetName: 'assets/crochet/pug.jpeg',
       ),
       Product(
-        category: Category.home,
+        category: Category.decor,
         id: 11,
         isFeatured: false,
         name: 'Silly Pig',
@@ -114,7 +104,7 @@ class ProductsRepository {
         assetName: 'assets/crochet/pig.jpeg',
       ),
       Product(
-        category: Category.home,
+        category: Category.decor,
         id: 12,
         isFeatured: false,
         name: 'Giraffe',
@@ -122,7 +112,7 @@ class ProductsRepository {
         assetName: 'assets/crochet/giraffe.jpeg',
       ),
       Product(
-        category: Category.home,
+        category: Category.decor,
         id: 13,
         isFeatured: true,
         name: 'Cappybara',
@@ -130,23 +120,23 @@ class ProductsRepository {
         assetName: 'assets/crochet/cappy.jpeg',
       ),
       Product(
-        category: Category.home,
+        category: Category.decor,
         id: 14,
         isFeatured: true,
-        name: 'Mushroom Buny',
+        name: 'Mushroom Bunny',
         price: 80000,
         assetName: 'assets/crochet/mushroom_bunny.jpeg',
       ),
       Product(
-        category: Category.home,
+        category: Category.decor,
         id: 15,
         isFeatured: true,
-        name: 'Smol Cat',
-        price: 30000,
-        assetName: 'assets/crochet/smol_cat.jpeg',
+        name: 'Plant',
+        price: 25000,
+        assetName: 'assets/crochet/plant.jpeg',
       ),
       Product(
-        category: Category.home,
+        category: Category.decor,
         id: 16,
         isFeatured: true,
         name: 'Corgi',
@@ -154,7 +144,7 @@ class ProductsRepository {
         assetName: 'assets/crochet/corgi.jpeg',
       ),
       Product(
-        category: Category.home,
+        category: Category.decor,
         id: 17,
         isFeatured: false,
         name: 'Sheep',
@@ -162,31 +152,33 @@ class ProductsRepository {
         assetName: 'assets/crochet/sheep.jpeg',
       ),
       Product(
-        category: Category.home,
+        category: Category.decor,
         id: 18,
         isFeatured: true,
         name: 'Cool Teddy',
         price: 60000,
         assetName: 'assets/crochet/cool_teddy.jpeg',
       ),
+
+      // Keychain
       Product(
-        category: Category.clothing,
+        category: Category.keychain,
         id: 19,
         isFeatured: false,
         name: 'Cozy Penguin',
-        price: 48,
+        price: 48000,
         assetName: 'assets/crochet/cozy_penguin.jpeg',
       ),
       Product(
-        category: Category.clothing,
+        category: Category.keychain,
         id: 20,
         isFeatured: false,
         name: 'Pompompurin',
-        price: 45,
+        price: 45000,
         assetName: 'assets/crochet/pompompurin.jpeg',
       ),
       Product(
-        category: Category.clothing,
+        category: Category.keychain,
         id: 21,
         isFeatured: false,
         name: 'Mammoth',
@@ -194,7 +186,7 @@ class ProductsRepository {
         assetName: 'assets/crochet/mammoth.jpeg',
       ),
       Product(
-        category: Category.clothing,
+        category: Category.keychain,
         id: 22,
         isFeatured: false,
         name: 'Strawberry Turtle',
@@ -202,7 +194,7 @@ class ProductsRepository {
         assetName: 'assets/crochet/strawberry_turtle.jpeg',
       ),
       Product(
-        category: Category.clothing,
+        category: Category.keychain,
         id: 23,
         isFeatured: false,
         name: 'Otter',
@@ -210,7 +202,7 @@ class ProductsRepository {
         assetName: 'assets/crochet/otter.jpeg',
       ),
       Product(
-        category: Category.clothing,
+        category: Category.keychain,
         id: 24,
         isFeatured: true,
         name: 'Rat sweater',
@@ -218,15 +210,15 @@ class ProductsRepository {
         assetName: 'assets/crochet/rat.jpeg',
       ),
       Product(
-        category: Category.clothing,
+        category: Category.keychain,
         id: 25,
         isFeatured: false,
         name: 'Whale',
-        price: 178,
+        price: 178000,
         assetName: 'assets/crochet/whale.jpeg',
       ),
       Product(
-        category: Category.clothing,
+        category: Category.keychain,
         id: 26,
         isFeatured: false,
         name: 'Axolotl',
@@ -234,7 +226,7 @@ class ProductsRepository {
         assetName: 'assets/crochet/axolotl.jpeg',
       ),
       Product(
-        category: Category.clothing,
+        category: Category.keychain,
         id: 27,
         isFeatured: true,
         name: 'Perry The Platypus',
@@ -242,7 +234,7 @@ class ProductsRepository {
         assetName: 'assets/crochet/perry.jpeg',
       ),
       Product(
-        category: Category.clothing,
+        category: Category.keychain,
         id: 28,
         isFeatured: true,
         name: 'Totoro',
@@ -250,7 +242,7 @@ class ProductsRepository {
         assetName: 'assets/crochet/totoro.jpeg',
       ),
       Product(
-        category: Category.clothing,
+        category: Category.keychain,
         id: 29,
         isFeatured: true,
         name: 'Octopus',
@@ -258,15 +250,15 @@ class ProductsRepository {
         assetName: 'assets/crochet/octopus.jpeg',
       ),
       Product(
-        category: Category.clothing,
+        category: Category.keychain,
         id: 30,
         isFeatured: true,
-        name: 'Monkey',
-        price: 80000,
-        assetName: 'assets/crochet/monkey.jpeg',
+        name: 'Smol Cat',
+        price: 35000,
+        assetName: 'assets/crochet/smol_cat.jpeg',
       ),
       Product(
-        category: Category.clothing,
+        category: Category.keychain,
         id: 31,
         isFeatured: false,
         name: 'Bare Bears',
@@ -274,7 +266,7 @@ class ProductsRepository {
         assetName: 'assets/crochet/barebear.jpeg',
       ),
       Product(
-        category: Category.clothing,
+        category: Category.keychain,
         id: 32,
         isFeatured: false,
         name: 'Monkey',
@@ -282,7 +274,7 @@ class ProductsRepository {
         assetName: 'assets/crochet/monkey.jpeg',
       ),
       Product(
-        category: Category.clothing,
+        category: Category.keychain,
         id: 33,
         isFeatured: true,
         name: 'Cow',
@@ -290,7 +282,7 @@ class ProductsRepository {
         assetName: 'assets/crochet/cow.jpeg',
       ),
       Product(
-        category: Category.clothing,
+        category: Category.keychain,
         id: 34,
         isFeatured: false,
         name: 'Mushroom',
@@ -298,7 +290,7 @@ class ProductsRepository {
         assetName: 'assets/crochet/mushroom.jpeg',
       ),
       Product(
-        category: Category.clothing,
+        category: Category.keychain,
         id: 35,
         isFeatured: false,
         name: 'Hammerhead Shark',
@@ -306,7 +298,7 @@ class ProductsRepository {
         assetName: 'assets/crochet/hammerhead.jpeg',
       ),
       Product(
-        category: Category.clothing,
+        category: Category.keychain,
         id: 36,
         isFeatured: false,
         name: 'Minion',
@@ -314,7 +306,7 @@ class ProductsRepository {
         assetName: 'assets/crochet/minion.jpeg',
       ),
       Product(
-        category: Category.clothing,
+        category: Category.keychain,
         id: 37,
         isFeatured: true,
         name: 'Donald Duck',
@@ -322,12 +314,11 @@ class ProductsRepository {
         assetName: 'assets/crochet/donald_duck.jpeg',
       ),
     ];
+
     if (category == Category.all) {
       return allProducts;
     } else {
-      return allProducts.where((Product p) {
-        return p.category == category;
-      }).toList();
+      return allProducts.where((Product p) => p.category == category).toList();
     }
   }
 }

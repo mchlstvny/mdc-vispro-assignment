@@ -14,9 +14,9 @@
 
 enum Category {
   all,
-  accessories,
-  clothing,
-  home,
+  plushie,
+  keychain,
+  decor,
 }
 
 class Product {
